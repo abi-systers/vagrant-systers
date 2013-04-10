@@ -59,7 +59,8 @@ workstation outside the VM if you want.
 ## Accessing the Mailman web interface
 
 You can access the mailman web interface by going to
-http://localhost:8080/mailman/listinfo in your browser.
+[http://localhost:8080/mailman/listinfo](http://localhost:8080/mailman/listinfo)
+in your browser.
 
 The site admin password is `systers` and the password for the systers-admin list
 is `systers` as well.
