@@ -23,14 +23,29 @@ page](https://www.virtualbox.org/wiki/Downloads).
 If you need more help installing Vagrant, please take a look at [their
 installation documentation](http://docs.vagrantup.com/v2/installation/).
 
+# Environments included
+
+This repo includes two different versions of mailman for development: 1) mailman
+2 with systers patches 2) mailman 3 development environment. They are split
+between the following directories which you need to cd into to run the commands
+below:
+
+* mm2 == Mailman 2 with systers patches
+* mm3 == Mailman 3 development environment
+
 # Using Vagrant
 
 The Vagrantfile is setup to automatically download a VM image that already has
-the Systers mailman configured and already deployed.
+the Systers mailman configured and already deployed. Make sure you cd into one
+of the environments before running the commands below.
 
 ## Starting a VM
 
     vagrant up
+
+**NOTE: If you get an error that a port is currently being used, open up the
+Vagrantfile and change the port to something else (the second port number listed
+in the file).**
 
 ## Accessing the VM
 
@@ -54,7 +69,10 @@ workstation outside the VM if you want.
     vagrant destroy
     vagrant up
 
-# Systers Mailman
+# Systers Mailman 2 Environment
+
+Please make sure you are in the `mm2` directory when running the vagrant
+commands above for this environment.
 
 ## Accessing the Mailman web interface
 
@@ -102,5 +120,38 @@ To access mailman more directly via the command line, just type `sudo su -
 mailman` which will put you in the `/usr/lib/mailman-systers` folder.
 
 To access postgres, run `sudo su - postgres` and then `psql`.
+
+# Mailman 3 Environment
+
+Please make sure you are in the `mm3` directory when running the vagrant
+commands above for this environment.
+
+This environment has been setup following [Meflin's CentOS install
+documentation](http://www.meflin.net/mm3.txt) and the [5 minute dev
+guide](http://wiki.list.org/display/DEV/A+5+minute+guide+to+get+the+Mailman+web+UI+running).
+All of the code has been checked out as the root user in its home directory in
+`/root`.
+
+## Starting mailman
+
+Make sure you are the root user.
+
+    cd mailman
+    bin/mailman start
+
+## Starting the web gui
+
+Make sure you are the root user.
+
+**NOTE: Please notice the runserver command is different than what's included in
+the documentation above.**
+
+    cd postorius_standalone
+    python manage.py runserver 0.0.0.0:8000
+
+## Connect to the GUI
+
+Open a browser and connect to [http://localhost:8000/](http://localhost:8000/).
+The admin user is `root` and the password is `vagrant`.
 
 vi: set tw=80 ft=markdown :
