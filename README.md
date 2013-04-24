@@ -31,6 +31,7 @@ between the following directories which you need to cd into to run the commands
 below:
 
 * mm2 == Mailman 2 with systers patches
+* mm2-32bit == Mailman 2 with systers patches on i686
 * mm3 == Mailman 3 development environment
 
 # Using Vagrant
