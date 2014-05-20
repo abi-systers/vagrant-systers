@@ -8,7 +8,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "pc-web-dev"
   
   # config.vm.box_url = "../box/pc-web-05192014-i386.box"
-  config.vom.box_url = "http://54.183.32.240/vagrant/box/pc-web-05192014-i386.box"
+  config.vm.box_url = "http://54.183.32.240/vagrant/box/pc-web-05192014-i386.box"
 
   config.vm.network "forwarded_port", guest: 80, host: 8080
   config.vm.network "private_network", ip: "192.168.33.10"
